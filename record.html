@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>标题</title>
+    <title>工作人员操作</title>
     <meta name="keywords" content="关键词" />
     <meta name="description" content="描述" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,24 +17,77 @@
     <link rel="stylesheet" href="css/public/base.css">
     <link rel="stylesheet" href="css/public/public.css">
     <link rel="stylesheet" href="js/plugins/dialog/dialog.css">
-    <link rel="stylesheet" href="css/pages/templete.css">
+    <link rel="stylesheet" href="css/pages/record.css">
 </head>
 
 <body class="hide"> 
     
     <div class="pageWrap">
         <!-- 公共部分(定位) start -->
-        <div class="headNav" id="headNav"></div>
+        <div class="headNav none" id="headNav"></div>
         <!-- 公共部分(定位) start -->
         
         <!-- 主体内容部分 start-->
         <div class="wrap">
-            <img src="images/templete/test.jpg">
+            <section id="loginBox" class="">
+                <p>请输入密码</p>
+                <div class="label"><input type="tel" id="psw" maxlength="10"></div>
+                <div class="btn" id="enter">确认</div>
+            </section>
+
+            <section id="choseBox" class="none">
+                <div class="cont">
+                    <div class="btn" data-val="changeNameBox">修改队伍名称</div>
+                    <div class="btn" data-val="changeScoreBox">修改队伍分数</div>
+                    <div class="btn" data-val="musicBox">音乐</div>
+                    <div class="btn" data-val="pptBox">ppt</div>
+                </div>
+            </section>
+
+            <section id="pptBox" class="none">
+                <div class="btn" data-val="prev">前一页</div>
+                <div class="btn" data-val="next">后一页</div>
+                <div class="btn" data-val="back">返回</div>
+            </section>
+
+            <section id="musicBox" class="none">
+                <p class="name">好嗨哦</p>
+                <div class="btn" data-val="prev">前一首</div>
+                <div class="btn control" data-val="control">播放</div>
+                <div class="btn" data-val="next">后一首</div>
+                <div class="btn" data-val="back">返回</div>
+            </section>
+
+            <section id="changeNameBox" class="none">
+                <div class="box">
+                    <div class="block">
+                        <div class="color" style="background-color: #ff0000;"></div>
+                        <input type="text" value="红队">
+                        <div class="btn" data-id="0" data-val="#ff0000">修改</div>
+                    </div>
+                </div>
+                <div class="btn back">返回</div>
+            </section>
+
+            <section id="changeScoreBox" class="none">
+                <div class="box">
+                    <div class="block">
+                        <div class="btn" data-id="1" data-val="-5">-5</div>
+                        <div class="btn" data-id="1" data-val="-1">-1</div>
+                        <div class="color" style="background-color: #ff0000;"></div>
+                        <div class="name">红队</div>
+                        <div class="socre">10</div>
+                        <div class="btn" data-id="1" data-val="1">+1</div>
+                        <div class="btn" data-id="1" data-val="5">+5</div>
+                    </div>
+                </div>
+                <div class="btn back">返回</div>
+            </section>
         </div>
         <!-- 主体内容部分 end -->
 
         <!-- 页底导航部分 start -->
-        <div class="footNav" id="footNav"></div>
+        <div class="footNav none" id="footNav"></div>
         <!-- 页底导航部分 end -->
     </div>
     
@@ -46,7 +99,9 @@
     <script src="js/public/monitor.js"></script>
     <script src="js/plugins/dialog/dialog.js"></script>
     <script src="js/public/public.js"></script>
-    <script src="js/pages/templete.js"></script>
+    <script src="http://ws.be-xx.com/js/ws.js"></script>
+    <script src="js/data/music.js"></script>
+    <script src="js/pages/record.js"></script>
     <!-- js部分 end -->
 </body>
 </html>

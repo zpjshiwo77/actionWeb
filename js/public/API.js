@@ -7,7 +7,7 @@ var API = new importAPI();
 
 function importAPI () {
 	var _self = this;
-	var requestDomain = "";
+	var requestDomain = "https://color.beats-digital.com/Api/Handler.ashx?method=";
 
 	function _Ajax(opts){
 	    icom.loadingShow();
@@ -18,7 +18,7 @@ function importAPI () {
 	        dataType: 'json',
 	        async: true,
 	        data: opts.data,
-	        success: function(){
+	        success: function(data){
 	        	icom.loadingHide();
 		        if (opts.Type) {
 		            if (opts.onSuccess) opts.onSuccess(data);
@@ -36,13 +36,36 @@ function importAPI () {
 	    });
 	}
 
-	//测试接口
-	_self.Test = function(data,onSuccess){
+	/**
+	 * 获取队伍列表
+	 */
+	_self.getTeamList = function(onSuccess){
 		_Ajax({
-            API:"/api/test/test",
+            API:"GetColor",
+            data:{},
+            onSuccess:onSuccess
+        });
+	}//end func
+
+	/**
+	 * 修改队伍名称
+	 */
+	_self.changeTeamName = function(data,onSuccess){
+		_Ajax({
+            API:"UpdateNameColor",
             data:data,
-            onSuccess:onSuccess,
-            Type:false
+            onSuccess:onSuccess
+        });
+	}//end func
+
+	/**
+	 * 修改队伍分数
+	 */
+	_self.changeTeamScore = function(data,onSuccess){
+		_Ajax({
+            API:"UpdateCount",
+            data:data,
+            onSuccess:onSuccess
         });
 	}//end func
 }//end import
