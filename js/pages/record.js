@@ -73,7 +73,7 @@ $(document).ready(function(){
 	 */
 	function renderTeam(data){
 		var cont = "";
-		var colors = ["rgba(0,151,72)","rgba(22,65,102)","rgba(234,136,192)","rgba(134,82,160)","rgba(246,122,70)","rgba(214,184,75)","#ffffff","#333333"];
+		var colors = ["rgb(0,151,72)","rgb(22,65,102)","rgb(234,136,192)","rgb(134,82,160)","rgb(246,122,70)","rgb(214,184,75)","#ffffff","#333333"];
 		var teamnames = ["绿队","蓝队","粉队","紫队","橙队","黄队","白队","黑队"];
 		for (var i = 0; i < data.length; i++) {
 			var team = data[i];
@@ -155,10 +155,19 @@ $(document).ready(function(){
 	function enterRoom(){
 		var roomId = $("#psw").val();
 		if(roomId == "2019012077"){
-			ws = new WS({ link: 'ws://ws.be-xx.com/api/ws.ashx', channel: roomId});
+			ws = new WS({ link: 'ws://ws.be-xx.com/api/ws.ashx', channel: roomId,callback:dealInfo});
 			changePage(loginBox,choseBox);
 		}
 		else alert("别来捣乱了~");
+	}
+
+	/**
+	 * 处理信息
+	 */
+	function dealInfo(data){
+		if(data == "updateTeam"){
+			getTeamList();
+		}
 	}
 
 	/**
